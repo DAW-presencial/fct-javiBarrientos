@@ -66,7 +66,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::find($id);
+        return response()->json($contact);
     }
 
     /**
@@ -91,9 +92,12 @@ class ContactController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
+            'first_name' => 'required|min:3|max:25',
+            'last_name' => 'required|min:3|max:25',
+            'email' => 'required|email|min:5|max:50',
+            'job_title' => 'required|min:5|max:25',
+            'city' => 'required|min:5|max:25',
+            'country' => 'required|min:5|max:25',
         ]);
 
         $contact = Contact::find($id);

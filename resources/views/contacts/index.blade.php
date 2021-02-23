@@ -2,6 +2,8 @@
 
 @section('main')
 <div class="row">
+<a href="{{ url('/') }}" class="text-sm text-gray-700 underline">Home</a>
+<a href="{{ url('/contacts/create') }}" class="text-sm text-gray-700 underline">Create</a>
 <div class="col-sm-12">
     <h1 class="display-3">Contacts</h1>
   <table class="table table-striped">
@@ -30,6 +32,7 @@
             <td>{{$contact->country}}</td>
             <td>
                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('contacts.show', $contact->id) }}" class="text-sm text-gray-700 underline">Contacts json</a>
             </td>
             <td>
                 <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">

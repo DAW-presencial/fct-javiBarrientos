@@ -1,6 +1,10 @@
 @extends('base')
 @section('main')
 <div class="row">
+<a href="{{ url('/') }}" class="text-sm text-gray-700 underline">Home</a>
+<a href="{{ url('/contacts/create') }}" class="text-sm text-gray-700 underline">Create</a>
+<a href="{{ url('/contacts') }}" class="text-sm text-gray-700 underline">Contacts</a>
+<a href="{{ route('contacts.show', $contact->id) }}" class="text-sm text-gray-700 underline">Contacts json</a>
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">Update a contact</h1>
 
@@ -45,6 +49,7 @@
                 <input type="text" class="form-control" name="job_title" value={{ $contact->job_title }} />
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ route('contacts.show', $contact->id) }}" class="text-sm text-gray-700 underline">Contacts json</a>
         </form>
     </div>
 </div>
